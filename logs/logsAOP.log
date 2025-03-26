@@ -1,0 +1,8 @@
+2025-03-26 19:56:45.422 [http-nio-8080-exec-4] INFO  r.b.aop.taskaop.aspect.LogAspect - Started method : getTasks
+2025-03-26 20:17:33.151 [http-nio-8080-exec-9] ERROR r.b.aop.taskaop.aspect.LogAspect - Exception in method: deleteTask, Exception: Task with id 1 not found
+
+2025-03-26 20:24:05.861 [http-nio-8080-exec-2] INFO  r.b.aop.taskaop.aspect.LogAspect - Started method : getTasks
+2025-03-26 20:25:37.862 [http-nio-8080-exec-3] INFO  r.b.aop.taskaop.aspect.LogAspect - Started method : getTasks
+2025-03-26 20:25:50.371 [http-nio-8080-exec-6] INFO  r.b.aop.taskaop.aspect.LogAspect - AfterReturning method: createTask, Result: ru.boraldan.aop.taskaop.domen.Task@3b8d2cd0
+2025-03-26 20:25:56.245 [http-nio-8080-exec-4] INFO  r.b.aop.taskaop.aspect.LogAspect - Around method (before): updateTask
+2025-03-26 20:25:56.255 [http-nio-8080-exec-4] INFO  r.b.aop.taskaop.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 10ms
