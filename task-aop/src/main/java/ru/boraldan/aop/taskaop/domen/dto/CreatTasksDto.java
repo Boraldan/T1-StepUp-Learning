@@ -6,14 +6,16 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Schema(description = "Модель задачи")
-public class TaskDto {
+public class CreatTasksDto {
 
     @Schema(description = "Уникальный идентификатор задачи", example = "1")
     @Positive(message = "taskId должен быть > 0")
-    private Long taskId;
+    private Long tasksId;
 
     @Schema(description = "Заголовок задачи", example = "Добавить новую задачу")
     @NotBlank(message = "Title cannot be empty")

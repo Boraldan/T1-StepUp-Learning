@@ -1,4 +1,4 @@
-INSERT INTO t_task (title, description, user_id, created_at, updated_at, is_active)
+INSERT INTO t_tasks (title, description, user_id, created_at, updated_at, is_active)
 VALUES
 ('Task 1', 'Description 1', 1, NOW(), NOW(), TRUE),
 ('Task 2', 'Description 2', 1, NOW(), NOW(), TRUE),

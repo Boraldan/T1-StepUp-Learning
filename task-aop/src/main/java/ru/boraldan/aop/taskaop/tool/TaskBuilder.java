@@ -1,15 +1,15 @@
 package ru.boraldan.aop.taskaop.tool;
 
-import ru.boraldan.aop.taskaop.domen.Task;
+import ru.boraldan.aop.taskaop.domen.Tasks;
 
 import java.time.LocalDateTime;
 
 public class TaskBuilder {
 
-    private final Task task;
+    private final Tasks tasks;
 
     private TaskBuilder() {
-        this.task = new Task();
+        this.tasks = new Tasks();
     }
 
     public static TaskBuilder create() {
@@ -17,41 +17,41 @@ public class TaskBuilder {
     }
 
     public TaskBuilder setTaskId(Long taskId) {
-        this.task.setTaskId(taskId);
+        this.tasks.setTasksId(taskId);
         return this;
     }
 
     public TaskBuilder setTitle(String title) {
-        this.task.setTitle(title);
+        this.tasks.setTitle(title);
         return this;
     }
 
     public TaskBuilder setDescription(String description) {
-        this.task.setDescription(description);
+        this.tasks.setDescription(description);
         return this;
     }
 
     public TaskBuilder setUserId(Long userId) {
-        this.task.setUserId(userId);
+        this.tasks.setUserId(userId);
         return this;
     }
 
     public TaskBuilder setCreatedAt(LocalDateTime createdAt) {
-        this.task.setCreatedAt(createdAt);
+        this.tasks.setCreatedAt(createdAt);
         return this;
     }
 
     public TaskBuilder setUpdatedAt(LocalDateTime updatedAt) {
-        this.task.setUpdatedAt(updatedAt);
+        this.tasks.setUpdatedAt(updatedAt);
         return this;
     }
 
     public TaskBuilder setIsActive(Boolean isActive) {
-        this.task.setIsActive(isActive);
+        this.tasks.setIsActive(isActive);
         return this;
     }
 
-    public Task build() {
-        return this.task;
+    public Tasks build() {
+        return this.tasks;
     }
 }

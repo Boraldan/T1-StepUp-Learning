@@ -10,8 +10,9 @@ import ru.boraldan.aop.taskaop.aspect.annotation.LogAfterReturning;
 import ru.boraldan.aop.taskaop.aspect.annotation.LogAfterThrowing;
 import ru.boraldan.aop.taskaop.aspect.annotation.LogAround;
 import ru.boraldan.aop.taskaop.aspect.annotation.LogBefore;
-import ru.boraldan.aop.taskaop.domen.Task;
-import ru.boraldan.aop.taskaop.domen.dto.TaskDto;
+import ru.boraldan.aop.taskaop.domen.Tasks;
+import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
+import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 import ru.boraldan.aop.taskaop.repository.TaskRepository;
 import ru.boraldan.aop.taskaop.tool.TaskMapper;
 
@@ -25,37 +26,38 @@ public class TaskService {
     private final TaskMapper taskMapper;
 
     @LogBefore
-    public Page<Task> getTasks(Pageable pageable) {
-        return taskRepository.findAll(pageable);
+    public Page<TasksDto> getTasks(Pageable pageable) {
+        return taskMapper.toTasksDtoPage( taskRepository.findAll(pageable));
     }
 
     @LogAfterThrowing
-    public Task getTaskById(Long id) {
-        return taskRepository.findById(id)
+    public TasksDto getTaskById(Long id) {
+        Tasks tasks = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %d not found".formatted(id)));
+        return taskMapper.toDtoFromTasks(tasks);
     }
 
     @LogAfterReturning
     @Transactional
-    public Task createTask(TaskDto taskDto) {
-        Task task = taskMapper.toTaskFromDto(taskDto);
-        return taskRepository.save(task);
+    public TasksDto createTask(CreatTasksDto creatTasksDto) {
+        Tasks tasks = taskRepository.save(taskMapper.creatTasksFromDto(creatTasksDto));
+        return taskMapper.toDtoFromTasks(tasks);
     }
 
     @LogAround
     @Transactional
-    public Task updateTask(Long id, TaskDto taskDto) {
-        Task task = taskRepository.findById(id)
+    public TasksDto updateTask(Long id, CreatTasksDto creatTasksDto) {
+        Tasks tasks = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %d not found".formatted(id)));
-        task = taskMapper.updateTaskFromDto(taskDto, task);
-        return taskRepository.save(task);
+        tasks = taskRepository.save(taskMapper.updateTasksFromDto(creatTasksDto, tasks));
+        return taskMapper.toDtoFromTasks(tasks);
     }
 
     @LogAfterThrowing
     @Transactional
     public void deleteTask(Long id) {
-        Task task = taskRepository.findById(id)
+        Tasks tasks = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %d not found".formatted(id)));
-        taskRepository.delete(task);
+        taskRepository.delete(tasks);
     }
 }

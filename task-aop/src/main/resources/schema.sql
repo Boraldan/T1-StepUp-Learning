@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS t_task (
-                        task_id BIGINT  AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS t_tasks (
+                        tasks_id BIGINT  AUTO_INCREMENT PRIMARY KEY,
                         title VARCHAR(255) NOT NULL,
                         description TEXT,
                         user_id BIGINT NOT NULL,
