@@ -9,7 +9,7 @@ import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 
 import java.util.List;
 
-
+// !!! ВАЖНО !!!  после внесения изменений в TaskMapper всегда надо запускать mvn clean
 @Mapper(componentModel = "spring")
 public interface TaskMapper {
 

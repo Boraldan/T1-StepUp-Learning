@@ -1,0 +1,15 @@
+FROM maven:3.9.4-eclipse-temurin-17 AS build
+WORKDIR /build
+COPY task-aop/pom.xml ./task/
+COPY task-aop/src ./task/src
+WORKDIR /build/task
+RUN mvn clean package -DskipTests
+
+FROM openjdk:17
+WORKDIR /app
+RUN mkdir -p logs
+COPY --from=build /build/task/target/*-SNAPSHOT.jar /app/app.jar
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
+
+

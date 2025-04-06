@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ public class Tasks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tasks_id")
-    private Long tasksId;
+    private UUID tasksId;
 
     @Column(name = "title")
     private String title;
@@ -27,7 +28,11 @@ public class Tasks {
     private String description;
 
     @Column(name = "user_id")
-    private Long userId;
+    private UUID userId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", columnDefinition = "VARCHAR")
+    private Status status;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

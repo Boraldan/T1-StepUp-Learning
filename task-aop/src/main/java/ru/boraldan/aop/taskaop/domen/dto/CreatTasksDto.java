@@ -7,15 +7,17 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.boraldan.aop.taskaop.domen.Status;
+
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @Schema(description = "Модель задачи")
 public class CreatTasksDto {
 
-    @Schema(description = "Уникальный идентификатор задачи", example = "1")
-    @Positive(message = "taskId должен быть > 0")
-    private Long tasksId;
+    @Schema(description = "Уникальный идентификатор задачи", example = "3fa85f64-5717-4562-b3fc-2c963f66afa6")
+    private UUID tasksId;
 
     @Schema(description = "Заголовок задачи", example = "Добавить новую задачу")
     @NotBlank(message = "Title cannot be empty")
@@ -26,9 +28,11 @@ public class CreatTasksDto {
     @Size(max = 500, message = "description должен быть до 500 символов длиной")
     private String description;
 
-    @Schema(description = "Идентификатор пользователя задачи", example = "1")
-    @Positive(message = "userId должен быть > 0")
-    private Long userId;
+    @Schema(description = "Уникальный идентификатор пользователя", example = "33333333-3333-3333-3333-333333333333")
+    private UUID userId;
+
+    @Schema(description = "Идентификатор статуса задачи", example = "PENDING")
+    private Status status;
 
     @Schema(description = "Статус активности задачи. Если false, задача считается завершённой", example = "true")
     private Boolean isActive;

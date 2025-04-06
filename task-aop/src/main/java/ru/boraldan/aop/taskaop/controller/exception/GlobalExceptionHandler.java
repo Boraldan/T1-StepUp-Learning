@@ -3,6 +3,7 @@ package ru.boraldan.aop.taskaop.controller.exception;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolationException;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -72,5 +73,17 @@ public class GlobalExceptionHandler {
         errors.put("message", "Invalid value for parameter '" + ex.getName() + "'. Expected type: " +
                 (ex.getRequiredType() != null ? ex.getRequiredType().getSimpleName() : "unknown"));
         return errors;
+    }
+
+    @ExceptionHandler(ConversionFailedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, String> handleConversionFailed(ConversionFailedException ex) {
+        return Map.of("message", "Invalid UUID: " + ex.getValue());
+    }
+
+    @ExceptionHandler(KafkaAdminException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String handleTopicCreationException(KafkaAdminException ex) {
+        return ex.getMessage();
     }
 }

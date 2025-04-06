@@ -3,6 +3,7 @@ package ru.boraldan.aop.taskaop.tool;
 import ru.boraldan.aop.taskaop.domen.Tasks;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class TaskBuilder {
 
@@ -16,7 +17,7 @@ public class TaskBuilder {
         return new TaskBuilder();
     }
 
-    public TaskBuilder setTaskId(Long taskId) {
+    public TaskBuilder setTaskId(UUID taskId) {
         this.tasks.setTasksId(taskId);
         return this;
     }
@@ -31,7 +32,7 @@ public class TaskBuilder {
         return this;
     }
 
-    public TaskBuilder setUserId(Long userId) {
+    public TaskBuilder setUserId(UUID userId) {
         this.tasks.setUserId(userId);
         return this;
     }
