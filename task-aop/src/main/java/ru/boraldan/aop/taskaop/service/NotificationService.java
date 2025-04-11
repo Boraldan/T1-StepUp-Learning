@@ -12,15 +12,15 @@ import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 
 import java.util.concurrent.CompletableFuture;
 
-@Service
 @RequiredArgsConstructor
-public class EmailService {
+@Service
+public class NotificationService {
 
     @Value("${mail.email-recipient}")
     private String emailRecipient;
     private final JavaMailSender emailSender;
 
-    // Отправляет текстовое сообщение о смене статуса Tasks.
+    // Отправляет текстовое сообщение о смене статуса Tasks
     @LogAfterThrowing
     @Async
     public CompletableFuture<Void> sendSimpleMessageAsync(TasksDto tasksDto) {
@@ -32,7 +32,5 @@ public class EmailService {
         emailSender.send(message);
         return CompletableFuture.completedFuture(null);
     }
-
-
 
 }

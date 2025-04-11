@@ -66,7 +66,6 @@ public class KafkaConsumerConfig {
         return deserializer;
     }
 
-
     @Bean
     public CommonErrorHandler kafkaErrorHandler() {
         DefaultErrorHandler handler = new DefaultErrorHandler(new FixedBackOff(1000L, 3));

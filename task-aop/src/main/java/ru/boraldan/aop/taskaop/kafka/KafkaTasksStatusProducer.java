@@ -6,6 +6,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 
+
 @Component
 public class KafkaTasksStatusProducer extends KafkaProducerFabric<TasksDto> {
 

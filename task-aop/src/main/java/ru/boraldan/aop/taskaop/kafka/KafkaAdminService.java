@@ -11,8 +11,8 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class KafkaAdminService {
 
     private final AdminClient adminClient;
@@ -56,4 +56,5 @@ public class KafkaAdminService {
         });
         return future;
     }
+
 }

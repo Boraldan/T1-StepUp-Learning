@@ -11,9 +11,9 @@ public class KafkaProducerFabric<T> {
 
     protected final KafkaTemplate<String, T> kafkaTemplate;
 
-    public void sendTo(String topic, T tasksDto) {
+    public void sendTo(String topic, T t) {
         try {
-            kafkaTemplate.send(topic, tasksDto);
+            kafkaTemplate.send(topic, t);
             kafkaTemplate.flush();
         } catch (Exception kafkaException) {
             log.error("Ошибка при отправке сообщения в Kafka", kafkaException);

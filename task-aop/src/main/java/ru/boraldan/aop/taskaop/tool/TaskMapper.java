@@ -18,7 +18,7 @@ public interface TaskMapper {
     @Mapping(target = "tasksId", ignore = true)
     Tasks creatTasksFromDto(CreatTasksDto dto);
 
-    // Метод для работы с уже существующими объектами.
+    // Метод для работы с уже существующими объектами
     @Mapping(target = "tasksId", ignore = true)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Tasks updateTasksFromDto(CreatTasksDto dto, @MappingTarget Tasks entity);

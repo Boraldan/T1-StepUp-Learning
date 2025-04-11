@@ -1,9 +1,12 @@
 kafka:
-  bootstrap-servers: "kafka1:9092"
+#  bootstrap-servers: "kafka1:9092"
+  bootstrap-servers: "localhost:9092"
   max-pull-interval: "100000"
   consumer:
     tasks-update-status:
       topic: tasks-update-status-topic
       group-id: tasks-update-status-group
       auto-offset-reset: earliest
-
+  producer:
+    tasks-update-status-topic:
+      enable: true

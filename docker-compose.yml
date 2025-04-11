@@ -28,7 +28,9 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181"
       KAFKA_LISTENERS: INTERNAL://0.0.0.0:19092,EXTERNAL://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka1:19092,EXTERNAL://host.docker.internal:9092
+#      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka1:19092,EXTERNAL://host.docker.internal:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka1:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092
+
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -37,29 +39,29 @@ services:
     depends_on:
       - zoo1
 
-  kafka2:
-    image: confluentinc/cp-kafka:7.3.2
-    hostname: kafka2
-    container_name: kafka2
-    ports:
-      - "9093:9093"
-      - "19093:19093"
-    volumes:
-      - kafka2-data:/var/lib/kafka/data
-    networks:
-      - t1networks
-    environment:
-      KAFKA_BROKER_ID: 2
-      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181"
-      KAFKA_LISTENERS: INTERNAL://0.0.0.0:19093,EXTERNAL://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka2:19093,EXTERNAL://host.docker.internal:9093
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-    depends_on:
-      - zoo1
+#  kafka2:
+#    image: confluentinc/cp-kafka:7.3.2
+#    hostname: kafka2
+#    container_name: kafka2
+#    ports:
+#      - "9093:9093"
+#      - "19093:19093"
+#    volumes:
+#      - kafka2-data:/var/lib/kafka/data
+#    networks:
+#      - t1networks
+#    environment:
+#      KAFKA_BROKER_ID: 2
+#      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181"
+#      KAFKA_LISTENERS: INTERNAL://0.0.0.0:19093,EXTERNAL://0.0.0.0:9093
+#      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka2:19093,EXTERNAL://host.docker.internal:9093
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+#      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+#      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+#      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+#    depends_on:
+#      - zoo1
 
 
   postgres_task:
@@ -73,9 +75,6 @@ services:
       - type: volume
         source: postgres_task
         target: /var/lib/postgresql/data
-      - type: bind
-        source: ./_data/task/sql
-        target: /docker-entrypoint-initdb.d
     ports:
       - "15432:5432"
     networks:
@@ -87,25 +86,25 @@ services:
       retries: 3
       start_period: 10s
 
-  task:
-    build:
-      context: .
-      dockerfile: ./task-aop/dockerfile
-    container_name: task
-    depends_on:
-      postgres_task:
-        condition: service_healthy
-      kafka1:
-        condition: service_started
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_task:5432/postgres_task
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: 123
-      SPRING_PROFILES_ACTIVE: secret, kafka
-    ports:
-      - "8080:8080"
-    networks:
-      - t1networks
+#  task:
+#    build:
+#      context: .
+#      dockerfile: ./task-aop/dockerfile
+#    container_name: task
+#    depends_on:
+#      postgres_task:
+#        condition: service_healthy
+#      kafka1:
+#        condition: service_started
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_task:5432/postgres_task
+#      SPRING_DATASOURCE_USERNAME: postgres
+#      SPRING_DATASOURCE_PASSWORD: 123
+#      SPRING_PROFILES_ACTIVE: secret, kafka
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - t1networks
 
 
 
@@ -115,4 +114,4 @@ networks:
 volumes:
   postgres_task:
   kafka1-data:
-  kafka2-data:
+#  kafka2-data:

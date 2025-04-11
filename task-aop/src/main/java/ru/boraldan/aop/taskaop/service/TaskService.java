@@ -21,8 +21,8 @@ import ru.boraldan.aop.taskaop.tool.TaskMapper;
 
 import java.util.UUID;
 
-@Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Service
 public class TaskService {
 
@@ -48,9 +48,7 @@ public class TaskService {
     public TasksDto createTask(CreatTasksDto creatTasksDto) {
         creatTasksDto.setStatus(Status.PENDING);
         Tasks tasks = taskRepository.save(taskMapper.creatTasksFromDto(creatTasksDto));
-        TasksDto tasksDto = taskMapper.toDtoFromTasks(tasks);
-        kafkaTasksStatusProducer.sendToUpdateStatus(tasksDto);
-        return tasksDto;
+        return taskMapper.toDtoFromTasks(tasks);
     }
 
     @LogAround

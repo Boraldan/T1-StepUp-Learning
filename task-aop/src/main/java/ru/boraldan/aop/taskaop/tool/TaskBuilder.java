@@ -1,5 +1,6 @@
 package ru.boraldan.aop.taskaop.tool;
 
+import ru.boraldan.aop.taskaop.domen.Status;
 import ru.boraldan.aop.taskaop.domen.Tasks;
 
 import java.time.LocalDateTime;
@@ -29,6 +30,11 @@ public class TaskBuilder {
 
     public TaskBuilder setDescription(String description) {
         this.tasks.setDescription(description);
+        return this;
+    }
+
+    public TaskBuilder setStatus(Status status) {
+        this.tasks.setStatus(status);
         return this;
     }
 
