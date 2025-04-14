@@ -1,0 +1,2 @@
+2025-04-12 13:17:28.809 [http-nio-8080-exec-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method:  getTaskById, Exception: Task with id 6a464665-db4f-4f9b-9f49-719ac8fe719b not found
+2025-04-12 13:17:30.551 [http-nio-8080-exec-2] ERROR r.b.l.starter.aspect.LogAspect - Exception in method:  getTaskById, Exception: Task with id 6a464665-db4f-4f9b-9f49-719ac8fe719b not found

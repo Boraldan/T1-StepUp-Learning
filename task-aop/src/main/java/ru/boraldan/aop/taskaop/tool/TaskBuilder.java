@@ -1,7 +1,9 @@
 package ru.boraldan.aop.taskaop.tool;
 
-import ru.boraldan.aop.taskaop.domen.Status;
-import ru.boraldan.aop.taskaop.domen.Tasks;
+
+
+import task.entity.Status;
+import task.entity.Tasks;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

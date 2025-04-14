@@ -3,9 +3,10 @@ package ru.boraldan.aop.taskaop.tool;
 import org.mapstruct.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import ru.boraldan.aop.taskaop.domen.Tasks;
-import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
-import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
+import task.entity.Tasks;
+import task.dto.CreatTasksDto;
+import task.dto.TasksDto;
+
 
 import java.util.List;
 

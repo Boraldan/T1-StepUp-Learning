@@ -1,5 +1,12 @@
+FROM maven:3.9.4-eclipse-temurin-17 AS build-starter
+RUN apt-get update && apt-get install -y git
+RUN git clone https://github.com/Boraldan/T1-Learning-Starter.git /build/starter
+WORKDIR /build/starter
+RUN mvn -f pom.xml clean install -DskipTests -e
+
 FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /build
+COPY --from=build-starter /build/starter/target/starter-0.0.1-SNAPSHOT.jar /root/.m2/repository/ru/boraldan/log-aspect-starter/starter/0.0.1-SNAPSHOT/starter-0.0.1-SNAPSHOT.jar
 COPY task-aop/pom.xml ./task/
 COPY task-aop/src ./task/src
 WORKDIR /build/task

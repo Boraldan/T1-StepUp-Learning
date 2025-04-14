@@ -2,9 +2,23 @@ package ru.boraldan.aop.taskaop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EntityScan(basePackages = "task.entity")
+@EnableJpaRepositories(basePackages = "ru.boraldan.aop.taskaop.repository")
+@Import({ru.boraldan.taskstarters.logaopstarter.config.LoggerAopAutoConfiguration.class,
+        ru.boraldan.taskstarters.kafkastarter.config.KafkaAutoConfig.class})
+@ComponentScan(basePackages = {
+        "ru.boraldan.taskstarters.logaopstarter",
+        "ru.boraldan.taskstarters.kafkastarter",
+        "ru.boraldan.aop.taskaop"})
+//@ConfigurationPropertiesScan(basePackages = {
+//        "ru.boraldan.taskstarters.logaopstarter.config",
+//        "ru.boraldan.taskstarters.kafkastarter.config"})
 public class TaskAopApplication {
 
     public static void main(String[] args) {

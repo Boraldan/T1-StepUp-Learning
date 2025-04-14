@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +14,10 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @Validated
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/kafka/admin")
-@RequiredArgsConstructor
+@ConditionalOnProperty(name = "kafka.enable", havingValue = "true")
 public class KafkaAdminController {
 
     private final KafkaAdminService kafkaAdminService;
