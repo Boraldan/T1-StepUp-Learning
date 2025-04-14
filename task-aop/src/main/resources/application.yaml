@@ -19,8 +19,8 @@ spring:
           starttls.enable: true
 
   datasource:
-    url: jdbc:postgresql://localhost:15432/postgres_task
-#    url: jdbc:postgresql://postgres_task:5432/postgres_task
+#    url: jdbc:postgresql://localhost:15432/postgres_task
+    url: jdbc:postgresql://postgres_task:5432/postgres_task
     driverClassName: org.postgresql.Driver
     username: ${postgres.POSTGRES_USER}
     password: ${postgres.POSTGRES_PASSWORD}
