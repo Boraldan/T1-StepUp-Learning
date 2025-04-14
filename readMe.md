@@ -18,3 +18,8 @@
 - Kafka (2 брокера)
 - Zookeeper
 - Сервис управления задачами Tasks
+
+Перенесены в стартеры:
+- Kafka 
+- LogAspect
+- Repo Dto Entity
