@@ -2,17 +2,20 @@ package ru.boraldan.aop.taskaop.kafka;
 
 import lombok.RequiredArgsConstructor;
 
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
-import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 import ru.boraldan.aop.taskaop.service.NotificationService;
+import task.dto.TasksDto;
 
 import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 @Service
+@ConditionalOnProperty(name = "kafka.enable", havingValue = "true")
 public class KafkaConsumerService {
 
     private final NotificationService notificationService;
@@ -20,7 +23,7 @@ public class KafkaConsumerService {
     @KafkaListener(
             topics = "${kafka.consumer.tasks-update-status.topic}",
             groupId = "${kafka.consumer.tasks-update-status.group-id}",
-            containerFactory = "tasksDtoListenerContainerFactory",
+            containerFactory = "${kafka.consumer.tasks-update-status.container-factory}",
             properties = {"auto.offset.reset=${kafka.consumer.tasks-update-status.auto-offset-reset}"})
     public void listenTasksStatus(@Payload TasksDto tasksDto, Acknowledgment ack) {
         CompletableFuture<Void> future = notificationService.sendSimpleMessageAsync(tasksDto);

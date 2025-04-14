@@ -7,9 +7,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
-import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
+
 import ru.boraldan.aop.taskaop.service.TaskService;
+import task.dto.CreatTasksDto;
+import task.dto.TasksDto;
 
 import java.util.UUID;
 

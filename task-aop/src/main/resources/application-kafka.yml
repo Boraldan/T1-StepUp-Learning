@@ -6,7 +6,10 @@ kafka:
     tasks-update-status:
       topic: tasks-update-status-topic
       group-id: tasks-update-status-group
+      container-factory: tasksDtoListenerContainerFactory
       auto-offset-reset: earliest
+      payload-dto: task.dto.TasksDto
+
   producer:
     tasks-update-status-topic:
-      enable: true
+

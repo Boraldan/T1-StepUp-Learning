@@ -4,15 +4,20 @@ import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.KafkaFuture;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
-import ru.boraldan.aop.taskaop.controller.exception.KafkaAdminException;
+import ru.boraldan.taskstarters.kafkastarter.kafka.KafkaAdminException;
+import ru.boraldan.taskstarters.logaopstarter.aspect.annotation.LogAfterThrowing;
 
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
+
+@LogAfterThrowing
 @RequiredArgsConstructor
 @Service
+@ConditionalOnProperty(name = "kafka.enable", havingValue = "true")
 public class KafkaAdminService {
 
     private final AdminClient adminClient;
