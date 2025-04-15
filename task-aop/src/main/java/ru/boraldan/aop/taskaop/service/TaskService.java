@@ -7,10 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.boraldan.aop.taskaop.aspect.annotation.LogAfterReturning;
-import ru.boraldan.aop.taskaop.aspect.annotation.LogAfterThrowing;
-import ru.boraldan.aop.taskaop.aspect.annotation.LogAround;
-import ru.boraldan.aop.taskaop.aspect.annotation.LogBefore;
 import ru.boraldan.aop.taskaop.domen.Status;
 import ru.boraldan.aop.taskaop.domen.Tasks;
 import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
@@ -18,9 +14,14 @@ import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 import ru.boraldan.aop.taskaop.kafka.KafkaTasksStatusProducer;
 import ru.boraldan.aop.taskaop.repository.TaskRepository;
 import ru.boraldan.aop.taskaop.tool.TaskMapper;
+import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterReturning;
+import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterThrowing;
+import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAround;
+import ru.boraldan.logaopstarter.starter.aspect.annotation.LogBefore;
 
 import java.util.UUID;
 
+@LogAfterThrowing
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Service
@@ -35,9 +36,8 @@ public class TaskService {
         return taskMapper.toTasksDtoPage(taskRepository.findAll(pageable));
     }
 
-    @LogAfterThrowing
+    @LogAfterReturning
     public TasksDto getTaskById(UUID id) {
-        System.out.println(id);
         Tasks tasks = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %s not found".formatted(id)));
         return taskMapper.toDtoFromTasks(tasks);
@@ -57,12 +57,15 @@ public class TaskService {
         Tasks tasks = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %s not found".formatted(id)));
         tasks = taskRepository.save(taskMapper.updateTasksFromDto(creatTasksDto, tasks));
+        boolean statusFlag = creatTasksDto.getStatus().equals(tasks.getStatus());
         TasksDto tasksDto = taskMapper.toDtoFromTasks(tasks);
-        kafkaTasksStatusProducer.sendToUpdateStatus(tasksDto);
+        if (!statusFlag) {
+            kafkaTasksStatusProducer.sendToUpdateStatus(tasksDto);
+        }
         return tasksDto;
     }
 
-    @LogAfterThrowing
+    @LogBefore
     @Transactional
     public void deleteTask(UUID id) {
         Tasks tasks = taskRepository.findById(id)

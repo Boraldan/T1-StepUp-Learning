@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 import ru.boraldan.aop.taskaop.service.TaskService;
+import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterThrowing;
 
 import java.util.UUID;
-
 
 @RequiredArgsConstructor
 @RestController

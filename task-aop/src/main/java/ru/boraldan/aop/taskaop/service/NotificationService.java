@@ -7,8 +7,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import ru.boraldan.aop.taskaop.aspect.annotation.LogAfterThrowing;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
+import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterThrowing;
 
 import java.util.concurrent.CompletableFuture;
 
