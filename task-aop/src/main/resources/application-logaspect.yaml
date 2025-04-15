@@ -1,0 +1,5 @@
+log-aspect:
+  enable: true
+  set-level:
+    level: info
+

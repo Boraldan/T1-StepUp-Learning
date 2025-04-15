@@ -9,7 +9,7 @@
         </encoder>
     </appender>
 
-    <logger name="ru.boraldan.logaopstarter.starter.aspect.LogAspect" level="INFO" additivity="false">
+    <logger name="ru.boraldan.logaopstarter.starter.aspect.LogAspect" level="${log-aspect.set-level.level:INFO}" additivity="false">
         <appender-ref ref="ASPECT_FILE"/>
     </logger>
 
