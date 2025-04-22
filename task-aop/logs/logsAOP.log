@@ -1,0 +1,111 @@
+2025-04-22 12:43:27.267 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Could not parse mail
+2025-04-22 12:48:35.605 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 13:10:59.937 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 13:31:26.541 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=ed98f9e0-ea43-496c-ba71-fef542ab9f1d, title=Найти меня, description=desc, userId=78879aab-a283-4d0e-9c49-352c616a8aec, status=PENDING, createdAt=2025-04-22T13:31:26.418243, updatedAt=2025-04-22T13:31:26.418243, isActive=true)
+2025-04-22 13:32:35.897 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=cf6e688c-f94e-4f51-9088-42921fcdc343, title=Найти меня, description=desc, userId=dfec27bf-4639-4c24-8eb4-cec1197a9e11, status=PENDING, createdAt=2025-04-22T13:32:35.811919, updatedAt=2025-04-22T13:32:35.811919, isActive=true)
+2025-04-22 13:36:42.526 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=1901700c-f30d-4187-bec9-dbc3f109c645, title=Тестовая задача, description=Описание, userId=67c51efa-f026-47c8-9f1b-46ba09a34f1d, status=PENDING, createdAt=2025-04-22T13:36:42.475322, updatedAt=2025-04-22T13:36:42.475322, isActive=true)
+2025-04-22 13:36:42.693 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=7fff2b80-918e-431a-982c-7eeba6822fc7, title=Найти меня, description=desc, userId=ae2a9418-efcd-4415-8ecd-bb0465ea056a, status=PENDING, createdAt=2025-04-22T13:36:42.663976, updatedAt=2025-04-22T13:36:42.663976, isActive=true)
+2025-04-22 13:36:42.719 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 13:36:42.751 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 13:36:43.034 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 282ms
+2025-04-22 13:36:43.155 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 13:44:54.822 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=96b60b52-3a5a-4dcd-ba95-68365bf7580b, title=Тестовая задача, description=Описание, userId=54c57739-f897-45fb-978e-2c855a675beb, status=PENDING, createdAt=2025-04-22T13:44:54.785810, updatedAt=2025-04-22T13:44:54.785810, isActive=true)
+2025-04-22 13:44:54.891 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=6c24dc36-2015-46f1-b0d9-e3b00af615ce, title=Найти меня, description=desc, userId=f349bb7b-15b8-455e-af6f-be7a85180251, status=PENDING, createdAt=2025-04-22T13:44:54.864315, updatedAt=2025-04-22T13:44:54.864315, isActive=true)
+2025-04-22 13:44:54.921 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 13:44:55.066 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
+2025-04-22 13:44:55.194 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 13:44:55.397 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 203ms
+2025-04-22 13:44:55.486 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 14:19:14.415 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 14:35:20.510 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 16:33:13.826 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=49dbce0e-d6ad-4651-b1bc-cea6f85edbe1, title=Тестовая задача, description=Описание, userId=090e98d4-8bcd-4292-831e-809abbb7192d, status=PENDING, createdAt=2025-04-22T16:33:13.785443, updatedAt=2025-04-22T16:33:13.785443, isActive=true)
+2025-04-22 16:33:13.971 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=f46a8b5a-535e-4346-ab7f-ba79af098516, title=Найти меня, description=desc, userId=bf9a8100-ac70-43fd-b170-40a16c006a2b, status=PENDING, createdAt=2025-04-22T16:33:13.950177, updatedAt=2025-04-22T16:33:13.950201, isActive=true)
+2025-04-22 16:33:13.998 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 16:33:14.139 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
+2025-04-22 16:33:14.264 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 16:33:14.472 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 208ms
+2025-04-22 16:33:14.599 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 16:54:52.056 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 16:54:52.300 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 242ms
+2025-04-22 16:54:52.420 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 16:54:52.535 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=af605f80-57c2-4c1c-9834-d9f441836980, title=Тестовая задача, description=Описание, userId=1b9bed55-4a5e-415e-9b13-7ce940d40a34, status=PENDING, createdAt=2025-04-22T16:54:52.522048, updatedAt=2025-04-22T16:54:52.522048, isActive=true)
+2025-04-22 16:54:52.620 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=3e54dedf-448d-4964-ba63-1cb5c810ec14, title=Найти по id, description=desc, userId=b2f26491-14e0-4421-b626-5a39bfba01b2, status=PENDING, createdAt=2025-04-22T16:54:52.599794, updatedAt=2025-04-22T16:54:52.599794, isActive=true)
+2025-04-22 16:54:52.659 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 16:54:52.764 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
+2025-04-22 16:58:37.667 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=581a4a5e-0e77-4820-a4f6-05e80088d8dd, title=Тестовая задача, description=Описание, userId=ff4a1b4f-de50-420d-bc2a-ba2b9c853954, status=PENDING, createdAt=2025-04-22T16:58:37.621995, updatedAt=2025-04-22T16:58:37.621995, isActive=true)
+2025-04-22 16:59:50.646 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 16:59:50.886 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 239ms
+2025-04-22 16:59:51.001 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 16:59:51.083 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=b74eb210-d0cb-4c52-9056-7cc2f666141f, title=Тестовая задача, description=Описание, userId=64222f3f-4c7a-4fe2-9444-0f9ec095dc62, status=PENDING, createdAt=2025-04-22T16:59:51.074871, updatedAt=2025-04-22T16:59:51.074871, isActive=true)
+2025-04-22 16:59:51.130 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=0e4ec8eb-132f-48dc-a0e7-258c40df8d91, title=Найти по id, description=desc, userId=a92422cd-dd54-4fbe-8aa5-c6a1c5d14c49, status=PENDING, createdAt=2025-04-22T16:59:51.112713, updatedAt=2025-04-22T16:59:51.112748, isActive=true)
+2025-04-22 16:59:51.174 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 16:59:51.305 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
+2025-04-22 17:00:21.841 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:00:22.088 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 245ms
+2025-04-22 17:00:22.201 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 17:02:54.500 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:02:54.779 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 278ms
+2025-04-22 17:02:54.885 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 17:02:54.949 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=76329674-eef5-4b63-bcf8-e5f69fa79ab8, title=Тестовая задача, description=Описание, userId=ce8d6fed-079e-40fe-8920-bf7ccd2dcb0c, status=PENDING, createdAt=2025-04-22T17:02:54.937295, updatedAt=2025-04-22T17:02:54.937295, isActive=true)
+2025-04-22 17:02:55.022 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=bf9ebc8b-3a63-4603-8cea-ea42cb03424d, title=Найти по id, description=desc, userId=292803a4-34bd-4d59-b34f-5ef22d7c2cc1, status=PENDING, createdAt=2025-04-22T17:02:54.986868, updatedAt=2025-04-22T17:02:54.986868, isActive=true)
+2025-04-22 17:02:55.068 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 17:02:55.231 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
+2025-04-22 17:04:19.836 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 17:17:34.022 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=b37e49d2-1655-43a3-8e1f-c1b54b9496d0, title=Найти по id, description=desc, userId=20caa07d-c701-490e-830b-fc94e710f882, status=PENDING, createdAt=2025-04-22T17:17:33.884927, updatedAt=2025-04-22T17:17:33.884927, isActive=true)
+2025-04-22 17:17:34.169 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: getTaskById, Exception: Task with id ec273d6d-291e-4658-bee1-307a418a2402 not found
+2025-04-22 17:20:42.009 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=735518e1-8160-4405-8de3-f1708c131629, title=Найти по id, description=desc, userId=85df1fc9-dc9a-47a4-839c-f58d52afe6c8, status=PENDING, createdAt=2025-04-22T17:20:41.917758, updatedAt=2025-04-22T17:20:41.917758, isActive=true)
+2025-04-22 17:20:42.124 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: getTaskById, Exception: Task with id 2785ddba-2a2a-44d8-a5c9-390fbcc1243a not found
+2025-04-22 17:21:16.852 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=26912a8f-631c-4320-9599-00a5b47414d2, title=Найти по id, description=desc, userId=ccf4e237-6d11-4ee4-9d34-a402378141bd, status=PENDING, createdAt=2025-04-22T17:21:16.769631, updatedAt=2025-04-22T17:21:16.769631, isActive=true)
+2025-04-22 17:21:16.956 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: getTaskById, Exception: Task with id 8702b8a4-a855-4a79-9b53-80aa14253337 not found
+2025-04-22 17:23:08.228 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:23:08.496 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 266ms
+2025-04-22 17:23:08.630 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 17:24:17.927 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:24:18.165 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 237ms
+2025-04-22 17:24:18.266 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 17:24:18.272 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:24:18.278 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: updateTask, Exception: Task with id 4452e737-8640-41e4-9c88-1075c33b27aa not found
+2025-04-22 17:24:18.279 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method:  updateTask, Exception: Task with id 4452e737-8640-41e4-9c88-1075c33b27aa not found
+2025-04-22 17:26:57.741 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:26:58.029 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 286ms
+2025-04-22 17:26:58.123 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-04-22 17:26:58.135 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-04-22 17:26:58.139 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: updateTask, Exception: Task with id 6e34c489-a3a5-4e43-bc59-07e6581e81ae not found
+2025-04-22 17:26:58.139 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method:  updateTask, Exception: Task with id 6e34c489-a3a5-4e43-bc59-07e6581e81ae not found
+2025-04-22 17:26:58.222 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=054054ed-6cb5-466d-8ee0-b8211ed8614e, title=Тестовая задача, description=Описание, userId=ec04f27f-8c79-4696-b496-fef6fe9349b0, status=PENDING, createdAt=2025-04-22T17:26:58.212026, updatedAt=2025-04-22T17:26:58.212026, isActive=true)
+2025-04-22 17:26:58.277 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=896bad48-1e4f-4a83-863a-4167d43355d3, title=Найти по id, description=desc, userId=583fa563-9e0a-46d8-9e2a-3c2895f0a984, status=PENDING, createdAt=2025-04-22T17:26:58.261750, updatedAt=2025-04-22T17:26:58.261750, isActive=true)
+2025-04-22 17:26:58.285 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: getTaskById, Exception: Task with id a936b5a3-2442-41f5-8a61-643d2413c806 not found
+2025-04-22 17:26:58.323 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 17:26:58.345 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-04-22 17:26:58.349 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: deleteTask, Exception: Task with id a0d6c8de-1ed5-44f1-a9ed-38e5bf18441b not found
+2025-04-22 17:26:58.448 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks

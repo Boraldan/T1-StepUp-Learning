@@ -1,11 +1,11 @@
 package ru.boraldan.aop.taskaop.tool;
 
-import org.mapstruct.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import ru.boraldan.aop.taskaop.domen.Tasks;
 import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
+import org.mapstruct.*;
 
 import java.util.List;
 

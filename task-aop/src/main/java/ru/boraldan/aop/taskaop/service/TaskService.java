@@ -46,7 +46,8 @@ public class TaskService {
     @LogAfterReturning
     @Transactional
     public TasksDto createTask(CreatTasksDto creatTasksDto) {
-        creatTasksDto.setStatus(Status.PENDING);
+        if (creatTasksDto.getStatus() == null) creatTasksDto.setStatus(Status.PENDING);
+        if (creatTasksDto.getIsActive() == null) creatTasksDto.setIsActive(true);
         Tasks tasks = taskRepository.save(taskMapper.creatTasksFromDto(creatTasksDto));
         return taskMapper.toDtoFromTasks(tasks);
     }
@@ -56,8 +57,8 @@ public class TaskService {
     public TasksDto updateTask(UUID id, CreatTasksDto creatTasksDto) {
         Tasks tasks = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %s not found".formatted(id)));
-        tasks = taskRepository.save(taskMapper.updateTasksFromDto(creatTasksDto, tasks));
         boolean statusFlag = creatTasksDto.getStatus().equals(tasks.getStatus());
+        tasks = taskRepository.save(taskMapper.updateTasksFromDto(creatTasksDto, tasks));
         TasksDto tasksDto = taskMapper.toDtoFromTasks(tasks);
         if (!statusFlag) {
             kafkaTasksStatusProducer.sendToUpdateStatus(tasksDto);
@@ -72,4 +73,5 @@ public class TaskService {
                 .orElseThrow(() -> new EntityNotFoundException("Task with id %s not found".formatted(id)));
         taskRepository.delete(tasks);
     }
+
 }
