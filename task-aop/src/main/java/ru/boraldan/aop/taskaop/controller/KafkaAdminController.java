@@ -7,7 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.boraldan.aop.taskaop.kafka.KafkaAdminService;
+import ru.boraldan.aop.taskaop.kafka.KafkaAdminServiceV1;
+import ru.boraldan.aop.taskaop.kafka.ikafka.KafkaAdminService;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;

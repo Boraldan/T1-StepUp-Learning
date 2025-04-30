@@ -7,7 +7,7 @@ import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
-import ru.boraldan.aop.taskaop.service.NotificationService;
+import ru.boraldan.aop.taskaop.service.iservice.NotificationService;
 
 import java.util.concurrent.CompletableFuture;
 

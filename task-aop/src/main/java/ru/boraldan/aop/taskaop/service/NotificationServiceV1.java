@@ -8,13 +8,14 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
+import ru.boraldan.aop.taskaop.service.iservice.NotificationService;
 import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterThrowing;
 
 import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 @Service
-public class NotificationService {
+public class NotificationServiceV1 implements NotificationService {
 
     @Value("${mail.email-recipient}")
     private String emailRecipient;

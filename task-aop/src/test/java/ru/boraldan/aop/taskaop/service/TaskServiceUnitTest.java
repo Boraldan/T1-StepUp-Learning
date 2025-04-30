@@ -4,9 +4,10 @@ import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -16,6 +17,7 @@ import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 import ru.boraldan.aop.taskaop.kafka.KafkaTasksStatusProducer;
 import ru.boraldan.aop.taskaop.repository.TaskRepository;
+import ru.boraldan.aop.taskaop.service.iservice.TaskService;
 import ru.boraldan.aop.taskaop.tool.TaskMapper;
 
 import java.time.LocalDateTime;
@@ -28,6 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class TaskServiceUnitTest {
 
     @Mock
@@ -39,9 +42,9 @@ class TaskServiceUnitTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+//        MockitoAnnotations.openMocks(this);
         taskMapper = Mappers.getMapper(TaskMapper.class);
-        taskService = new TaskService(kafkaTasksStatusProducer, taskRepository, taskMapper);
+        taskService = new TaskServiceV1(kafkaTasksStatusProducer, taskRepository, taskMapper);
     }
 
     @Test
@@ -127,7 +130,7 @@ class TaskServiceUnitTest {
 
         when(taskRepository.findById(taskId)).thenReturn(Optional.of(mockOldTasks));
         when(taskRepository.save(any(Tasks.class))).thenReturn(mockSaveTasks);
-        doNothing().when(kafkaTasksStatusProducer).sendToUpdateStatus(any(TasksDto.class));
+//        doNothing().when(kafkaTasksStatusProducer).sendToUpdateStatus(any(TasksDto.class));
 
         assertNotEquals(mockUpdateTasks.getStatus(), mockOldTasks.getStatus());
 
@@ -142,6 +145,7 @@ class TaskServiceUnitTest {
         assertNotNull(testTasksDto.getUpdatedAt());
         assertNotNull(testTasksDto.getIsActive());
         verify(kafkaTasksStatusProducer).sendToUpdateStatus(any(TasksDto.class));
+        verify(kafkaTasksStatusProducer, times(1)).sendToUpdateStatus(any(TasksDto.class));
 
     }
 
@@ -164,7 +168,7 @@ class TaskServiceUnitTest {
 
         when(taskRepository.findById(taskId)).thenReturn(Optional.of(mockOldTasks));
         when(taskRepository.save(any(Tasks.class))).thenReturn(mockSaveTasks);
-        doNothing().when(kafkaTasksStatusProducer).sendToUpdateStatus(any(TasksDto.class));
+//        doNothing().when(kafkaTasksStatusProducer).sendToUpdateStatus(any(TasksDto.class));
 
         assertEquals(mockUpdateTasks.getStatus(), mockOldTasks.getStatus());
 
@@ -204,6 +208,7 @@ class TaskServiceUnitTest {
         verify(taskRepository).findById(wrongId);
         verify(taskRepository, never()).delete(any());
     }
+
     private Tasks creatTask() {
         Tasks tasks = new Tasks();
         tasks.setTasksId(UUID.randomUUID());

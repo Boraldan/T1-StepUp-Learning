@@ -6,6 +6,7 @@ import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.KafkaFuture;
 import org.springframework.stereotype.Service;
 import ru.boraldan.aop.taskaop.controller.exception.KafkaAdminException;
+import ru.boraldan.aop.taskaop.kafka.ikafka.KafkaAdminService;
 
 import java.util.Collections;
 import java.util.Set;
@@ -13,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 @Service
-public class KafkaAdminService {
+public class KafkaAdminServiceV1 implements KafkaAdminService {
 
     private final AdminClient adminClient;
 

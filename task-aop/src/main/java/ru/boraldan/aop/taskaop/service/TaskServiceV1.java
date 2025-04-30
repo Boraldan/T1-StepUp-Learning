@@ -13,6 +13,7 @@ import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
 import ru.boraldan.aop.taskaop.kafka.KafkaTasksStatusProducer;
 import ru.boraldan.aop.taskaop.repository.TaskRepository;
+import ru.boraldan.aop.taskaop.service.iservice.TaskService;
 import ru.boraldan.aop.taskaop.tool.TaskMapper;
 import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterReturning;
 import ru.boraldan.logaopstarter.starter.aspect.annotation.LogAfterThrowing;
@@ -25,7 +26,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Service
-public class TaskService {
+public class TaskServiceV1 implements TaskService {
 
     private final KafkaTasksStatusProducer kafkaTasksStatusProducer;
     private final TaskRepository taskRepository;

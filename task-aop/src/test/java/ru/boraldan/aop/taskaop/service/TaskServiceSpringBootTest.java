@@ -13,9 +13,9 @@ import ru.boraldan.aop.taskaop.domen.Status;
 import ru.boraldan.aop.taskaop.domen.Tasks;
 import ru.boraldan.aop.taskaop.domen.dto.CreatTasksDto;
 import ru.boraldan.aop.taskaop.domen.dto.TasksDto;
-import ru.boraldan.aop.taskaop.kafka.KafkaTasksStatusProducer;
 import ru.boraldan.aop.taskaop.repository.TaskRepository;
 import ru.boraldan.aop.taskaop.container.TaskTestContainers;
+import ru.boraldan.aop.taskaop.service.iservice.TaskService;
 import ru.boraldan.aop.taskaop.tool.TaskMapper;
 
 import java.time.LocalDateTime;
@@ -30,17 +30,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class TaskServiceSpringBootTest extends TaskTestContainers {
 
     @Autowired
-    private KafkaTasksStatusProducer kafkaTasksStatusProducer;
-    @Autowired
     private TaskRepository taskRepository;
     @Autowired
     private TaskMapper taskMapper;
+    @Autowired
     private TaskService taskService;
 
     @BeforeEach
     void setUp() {
         taskRepository.deleteAll();
-        taskService = new TaskService(kafkaTasksStatusProducer, taskRepository, taskMapper);
     }
 
     @Test

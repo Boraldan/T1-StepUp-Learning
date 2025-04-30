@@ -12,7 +12,8 @@ public class TaskTestContainers {
 
     @Container
     protected static final KafkaContainer KAFKA_CONTAINER =
-            new KafkaContainer(DockerImageName.parse("apache/kafka-native:3.8.0"));
+//            new KafkaContainer(DockerImageName.parse("apache/kafka-native:3.8.0"));
+            new KafkaContainer(DockerImageName.parse("apache/kafka:latest"));
 
     @DynamicPropertySource
     protected static void configureProperties(DynamicPropertyRegistry registry) {
