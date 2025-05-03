@@ -31,8 +31,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>ru.boraldan.log-aspect-starter</groupId>
-            <artifactId>starter</artifactId>
+            <groupId>ru.boraldan</groupId>
+            <artifactId>log-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

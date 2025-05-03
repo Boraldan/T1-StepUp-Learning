@@ -169,3 +169,18 @@
 2025-04-25 12:15:50.874 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
 2025-04-25 12:15:50.880 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: deleteTask, Exception: Task with id a2eefb03-bcea-4cb8-ac25-e5417e492a2f not found
 2025-04-25 12:15:51.001 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
+2025-05-03 13:20:49.789 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-05-03 13:20:50.076 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (after): updateTask. Measuring the execution time : 285ms
+2025-05-03 13:20:50.187 [AsyncTasks-1] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: sendSimpleMessageAsync, Exception: Mail server connection failed. Failed messages: org.eclipse.angus.mail.util.MailConnectException: Couldn't connect to host, port: localhost, 25; timeout -1;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+2025-05-03 13:20:50.195 [main] INFO  r.b.l.starter.aspect.LogAspect - Around method (before): updateTask
+2025-05-03 13:20:50.200 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: updateTask, Exception: Task with id 4d9e4c0e-904d-406c-921e-3daf75326a4b not found
+2025-05-03 13:20:50.200 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method:  updateTask, Exception: Task with id 4d9e4c0e-904d-406c-921e-3daf75326a4b not found
+2025-05-03 13:20:50.281 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: createTask, Result: TasksDto(tasksId=ce8221c8-e324-4780-ae7d-78777c63dc1d, title=Тестовая задача, description=Описание, userId=8ce78f53-78a7-4cfa-ae8e-134aed8c66ce, status=PENDING, createdAt=2025-05-03T13:20:50.271575, updatedAt=2025-05-03T13:20:50.271575, isActive=true)
+2025-05-03 13:20:50.340 [main] INFO  r.b.l.starter.aspect.LogAspect - AfterReturning method: getTaskById, Result: TasksDto(tasksId=8279c652-1c7d-465a-a9b9-72efc9dae7a5, title=Найти по id, description=desc, userId=19a66e03-43b0-4409-a9ce-a8577c469721, status=PENDING, createdAt=2025-05-03T13:20:50.319940, updatedAt=2025-05-03T13:20:50.320448, isActive=true)
+2025-05-03 13:20:50.355 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: getTaskById, Exception: Task with id 9a8fb91a-d3d6-491b-8cdc-0c0e6c337f8f not found
+2025-05-03 13:20:50.390 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-05-03 13:20:50.412 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : deleteTask
+2025-05-03 13:20:50.415 [main] ERROR r.b.l.starter.aspect.LogAspect - Exception in method: deleteTask, Exception: Task with id e719d85b-792a-4de0-a7ef-e90efa398879 not found
+2025-05-03 13:20:50.516 [main] INFO  r.b.l.starter.aspect.LogAspect - Started method : getTasks
