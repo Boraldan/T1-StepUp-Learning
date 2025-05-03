@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ru.boraldan.taskstarters.kafkastarter.config.KafkaAutoConfig
